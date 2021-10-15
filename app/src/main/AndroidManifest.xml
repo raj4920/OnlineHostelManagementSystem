@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.online_hostel_management_system">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Online_Hostel_Management_System">
+        <activity
+            android:name=".MaintainRoomDetails"
+            android:exported="true" />
         <activity
             android:name=".NoticeBoard"
             android:exported="true" />
