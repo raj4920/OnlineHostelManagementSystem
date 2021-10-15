@@ -15,6 +15,7 @@ public class StudentDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_details);
+        controlIns();
     }
 
     private void controlIns()
@@ -24,4 +25,6 @@ public class StudentDetails extends AppCompatActivity {
         collagename=findViewById(R.id.collageName);
         btnsubmit=findViewById(R.id.btnsubmit);
     }
+
+
 }
