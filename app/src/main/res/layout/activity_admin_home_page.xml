@@ -28,11 +28,11 @@
         android:background="@drawable/btn_bg"
         android:text="View Student Room Allocation Request"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv2"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv2"
         app:layout_constraintTop_toBottomOf="@+id/tv2"
-        app:layout_constraintVertical_bias="0.042" />
+        app:layout_constraintVertical_bias="0.026" />
 
     <Button
         android:id="@+id/btnmrd"
@@ -41,9 +41,9 @@
         android:background="@drawable/btn_bg"
         android:text="Maintain Room Details"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnvsrar"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btnvsrar"
         app:layout_constraintTop_toBottomOf="@+id/btnvsrar"
         app:layout_constraintVertical_bias="0.028" />
 
@@ -54,11 +54,11 @@
         android:background="@drawable/btn_bg"
         android:text="Maintain Student and Staff Details"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnmrd"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btnmrd"
         app:layout_constraintTop_toBottomOf="@+id/btnmrd"
-        app:layout_constraintVertical_bias="0.028" />
+        app:layout_constraintVertical_bias="0.04" />
 
     <Button
         android:id="@+id/btnmnb"
@@ -67,11 +67,11 @@
         android:background="@drawable/btn_bg"
         android:text="Maintain Notice Board"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnmsasd"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btnmsasd"
         app:layout_constraintTop_toBottomOf="@+id/btnmrd"
-        app:layout_constraintVertical_bias="0.163" />
+        app:layout_constraintVertical_bias="0.192" />
 
     <Button
         android:id="@+id/btnvscm"
@@ -80,11 +80,11 @@
         android:background="@drawable/btn_bg"
         android:text="View Student Complaint and Manage It"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnmnb"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btnmnb"
         app:layout_constraintTop_toBottomOf="@+id/btnmnb"
-        app:layout_constraintVertical_bias="0.04" />
+        app:layout_constraintVertical_bias="0.066" />
 
     <Button
         android:id="@+id/btnufcm"
@@ -93,11 +93,11 @@
         android:background="@drawable/btn_bg"
         android:text="Upade Food Court Menu"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnvscm"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btnvscm"
         app:layout_constraintTop_toBottomOf="@+id/btnvscm"
-        app:layout_constraintVertical_bias="0.044" />
+        app:layout_constraintVertical_bias="0.084" />
 
     <Button
         android:id="@+id/btnvsfs"
@@ -106,11 +106,11 @@
         android:background="@drawable/btn_bg"
         android:text="View Student Fee Status"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnufcm"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/btnufcm"
         app:layout_constraintTop_toBottomOf="@+id/btnufcm"
-        app:layout_constraintVertical_bias="0.055" />
+        app:layout_constraintVertical_bias="0.101" />
 
     <Button
         android:id="@+id/btnmhe"
@@ -119,11 +119,11 @@
         android:background="@drawable/btn_bg"
         android:text="Mantain Hostel Expense"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnvsfs"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btnvsfs"
         app:layout_constraintTop_toBottomOf="@+id/btnvsfs"
-        app:layout_constraintVertical_bias="0.098" />
+        app:layout_constraintVertical_bias="0.141" />
 
     <Button
         android:id="@+id/btngr"
@@ -132,10 +132,10 @@
         android:background="@drawable/btn_bg"
         android:text="Generate Report"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnmhe"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btnmhe"
         app:layout_constraintTop_toBottomOf="@+id/btnmhe"
-        app:layout_constraintVertical_bias="0.119" />
+        app:layout_constraintVertical_bias="0.269" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
