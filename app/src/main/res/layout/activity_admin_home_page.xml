@@ -78,7 +78,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_bg"
-        android:text="Upade Food Court Menu"
+        android:text="Update Food Court Menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/btnvscm"
         app:layout_constraintHorizontal_bias="0.0"

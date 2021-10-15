@@ -87,18 +87,6 @@
         app:layout_constraintTop_toBottomOf="@+id/btnphf"
         app:layout_constraintVertical_bias="0.033" />
 
-    <Button
-        android:id="@+id/btnvnb"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_bg"
-        android:text="View Notice Board"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnpc"
-        app:layout_constraintVertical_bias="0.042" />
 
     <Button
         android:id="@+id/btnvfm"
@@ -110,7 +98,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnvnb"
+        app:layout_constraintTop_toBottomOf="@+id/btnpc"
         app:layout_constraintVertical_bias="0.068" />
 
     <Button
