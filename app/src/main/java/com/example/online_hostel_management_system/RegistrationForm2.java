@@ -86,7 +86,7 @@ public class RegistrationForm2 extends AppCompatActivity {
         StringRequest addRequest=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                //Toast.makeText(getApplicationContext(),response, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),response, Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener() {
             @Override
