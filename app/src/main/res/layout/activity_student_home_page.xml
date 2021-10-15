@@ -22,18 +22,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.019" />
 
-    <Button
-        android:id="@+id/btnvrd"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_bg"
-        android:text="View Room Details"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv1"
-        app:layout_constraintVertical_bias="0.107" />
 
     <Button
         android:id="@+id/btnrar"
@@ -45,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnvrd"
+        app:layout_constraintTop_toBottomOf="@+id/tv1"
         app:layout_constraintVertical_bias="0.033" />
 
     <Button
@@ -56,10 +44,10 @@
         android:text="View Room Allocation Request Status"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnrar"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.032" />
 
     <Button
         android:id="@+id/btnphf"

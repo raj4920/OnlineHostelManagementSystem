@@ -8,6 +8,7 @@
         <entry key="..\:/Online_Hostel_Management_System/app/src/main/res/drawable/ic_facebook.xml" value="0.14635416666666667" />
         <entry key="..\:/Online_Hostel_Management_System/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
         <entry key="..\:/Online_Hostel_Management_System/app/src/main/res/drawable/input_bg.xml" value="0.14635416666666667" />
+        <entry key="..\:/Online_Hostel_Management_System/app/src/main/res/layout/activity_add_room_type_fee.xml" value="0.25416666666666665" />
         <entry key="..\:/Online_Hostel_Management_System/app/src/main/res/layout/activity_admin_home_page.xml" value="0.264" />
         <entry key="..\:/Online_Hostel_Management_System/app/src/main/res/layout/activity_food_court_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Online_Hostel_Management_System/app/src/main/res/layout/activity_forget_password.xml" value="0.25416666666666665" />
@@ -18,6 +19,7 @@
         <entry key="..\:/Online_Hostel_Management_System/app/src/main/res/layout/activity_notice_board.xml" value="0.25416666666666665" />
         <entry key="..\:/Online_Hostel_Management_System/app/src/main/res/layout/activity_registration_form.xml" value="0.25416666666666665" />
         <entry key="..\:/Online_Hostel_Management_System/app/src/main/res/layout/activity_registration_form2.xml" value="0.25416666666666665" />
+        <entry key="..\:/Online_Hostel_Management_System/app/src/main/res/layout/activity_room_allocation_request.xml" value="0.25416666666666665" />
         <entry key="..\:/Online_Hostel_Management_System/app/src/main/res/layout/activity_staff_home_page.xml" value="0.25416666666666665" />
         <entry key="..\:/Online_Hostel_Management_System/app/src/main/res/layout/activity_student_details.xml" value="0.25416666666666665" />
         <entry key="..\:/Online_Hostel_Management_System/app/src/main/res/layout/activity_student_home_page.xml" value="0.25416666666666665" />

@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Online_Hostel_Management_System">
         <activity
+            android:name=".RoomAllocationRequest"
+            android:exported="true" />
+        <activity
+            android:name=".AddRoomTypeFee"
+            android:exported="true" />
+        <activity
             android:name=".FoodCourtMenu"
             android:exported="true" />
         <activity
