@@ -21,14 +21,37 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.042" />
 
-    <Spinner
+    <ListView
+        android:id="@+id/lst1"
+        android:layout_width="357dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/rar"
+        app:layout_constraintStart_toStartOf="@+id/rar"
+        app:layout_constraintTop_toBottomOf="@+id/rar" />
+
+    <!--<Spinner
         android:id="@+id/rtype"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/rar"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/rar"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.156" />
+
+    <Button
+        android:id="@+id/btnvfm"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_bg"
+        android:text="Request"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/rtype"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/rtype"
+        app:layout_constraintTop_toBottomOf="@+id/rtype"
+        app:layout_constraintVertical_bias="0.036" />-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
