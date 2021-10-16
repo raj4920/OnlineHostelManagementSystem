@@ -34,6 +34,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv2"
         app:layout_constraintVertical_bias="0.026" />
 
+
     <Button
         android:id="@+id/btnmrd"
         android:layout_width="0dp"
@@ -45,20 +46,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btnvsrar"
         app:layout_constraintTop_toBottomOf="@+id/btnvsrar"
-        app:layout_constraintVertical_bias="0.028" />
-
-    <Button
-        android:id="@+id/btnmsasd"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_bg"
-        android:text="Maintain Student and Staff Details"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/btnmrd"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnmrd"
-        app:layout_constraintTop_toBottomOf="@+id/btnmrd"
-        app:layout_constraintVertical_bias="0.04" />
+        app:layout_constraintVertical_bias="0.048" />
 
     <Button
         android:id="@+id/btnvscm"
@@ -67,11 +55,11 @@
         android:background="@drawable/btn_bg"
         android:text="View Student Complaint and Manage It"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/btnmsasd"
+        app:layout_constraintEnd_toEndOf="@+id/btnmrd"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnmsasd"
-        app:layout_constraintTop_toBottomOf="@+id/btnmsasd"
-        app:layout_constraintVertical_bias="0.066" />
+        app:layout_constraintStart_toStartOf="@+id/btnmrd"
+        app:layout_constraintTop_toBottomOf="@+id/btnmrd"
+        app:layout_constraintVertical_bias="0.053" />
 
     <Button
         android:id="@+id/btnufcm"
