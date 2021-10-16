@@ -61,9 +61,22 @@ public class RegistrationForm extends AppCompatActivity {
                 String adrs=address.getText().toString();
                 String gender=genderrb.getText().toString();
 
-                if(fname.isEmpty() && mname.isEmpty() && lname.isEmpty() && adrs.isEmpty())
+
+                if(fname.isEmpty())
                 {
-                    first_name.setError("Field can not be empty");
+                    first_name.setError("Field is required");
+                }
+                else if(mname.isEmpty())
+                {
+                    middle_name.setError("Field is required");
+                }
+                else if(lname.isEmpty())
+                {
+                    last_name.setError("Field is required");
+                }
+                else if (adrs.isEmpty())
+                {
+                    address.setError("Field is required");
                 }
                 else
                 {
@@ -75,27 +88,6 @@ public class RegistrationForm extends AppCompatActivity {
                     it.putExtra("address",adrs);
                     startActivity(it);
                 }
-
-                /*if(mname.isEmpty())
-                {
-                    middle_name.setError("Field can not be empty");
-                }
-
-                if(lname.isEmpty())
-                {
-                    last_name.setError("Field can not be empty");
-                }
-
-                if(adrs.isEmpty())
-                {
-                    address.setError("Field can not be empty");
-                }
-
-                if(rggender.getCheckedRadioButtonId()==-1)
-                {
-                    Toast.makeText(getApplicationContext(),"Please select gender",Toast.LENGTH_LONG).show();
-                }*/
-
 
                 //addData();
                 //Toast.makeText(getApplicationContext(),"",Toast.LENGTH_LONG).show();
