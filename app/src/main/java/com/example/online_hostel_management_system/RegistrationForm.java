@@ -60,6 +60,26 @@ public class RegistrationForm extends AppCompatActivity {
                 String adrs=address.getText().toString();
                 String gender=genderrb.getText().toString();
 
+                if(fname.isEmpty())
+                {
+                    first_name.setError("Field can not be empty");
+                }
+
+                if(mname.isEmpty())
+                {
+                    middle_name.setError("Field can not be empty");
+                }
+
+                if(lname.isEmpty())
+                {
+                    last_name.setError("Field can not be empty");
+                }
+
+                if(adrs.isEmpty())
+                {
+                    address.setError("Field can not be empty");
+                }
+
                 Intent it=new Intent(RegistrationForm.this,RegistrationForm2.class);
                 it.putExtra("firstname",fname);
                 it.putExtra("middlename",mname);
@@ -73,7 +93,7 @@ public class RegistrationForm extends AppCompatActivity {
         });
     }
 
-    private void addData()
+    /*private void addData()
     {
         StringRequest addRequest=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
@@ -100,5 +120,5 @@ public class RegistrationForm extends AppCompatActivity {
         };
         RequestQueue queue= Volley.newRequestQueue(this);
         queue.add(addRequest);
-    }
+    }*/
 }
