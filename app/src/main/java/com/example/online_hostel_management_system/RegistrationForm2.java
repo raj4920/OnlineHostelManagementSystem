@@ -59,18 +59,41 @@ public class RegistrationForm2 extends AppCompatActivity {
                 rbrole=(RadioButton)findViewById(userId);
                 String userRole=rbrole.getText().toString();
 
+
+                String aadharNo=aadhar_no.getText().toString();
+                String contactNo=contact_no.getText().toString();
+                String emailId=email_id.getText().toString();
+                String pwd=password.getText().toString();
+
+                if(aadharNo.isEmpty())
+                {
+                    aadhar_no.setError("Field can not be empty");
+                }
+                else if(aadharNo.length()>12 && aadharNo.length()<12)
+                {
+                    aadhar_no.setError("Invalid aadgar card no");
+                }
+
+                if(contactNo.isEmpty())
+                {
+                    contact_no.setError("Field can not be empty");
+                }
+                else if(contactNo.length()>10 && contactNo.length()<10)
+                {
+                    contact_no.setError("Invalid contact no");
+                }
+
                 if(userRole.equals("Student"))
                 {
-                    Intent it=new Intent(RegistrationForm2.this,StudentDetails.class);
-                    startActivity(it);
+                    Intent it1=new Intent(RegistrationForm2.this,StudentDetails.class);
+                    startActivity(it1);
                 }
                 else if(userRole.equals("Staff"))
                 {
-                    Intent i=new Intent(RegistrationForm2.this,MainActivity.class);
-                    startActivity(i);
+                    Intent it2=new Intent(RegistrationForm2.this,MainActivity.class);
+                    startActivity(it2);
                 }
                 addData();
-                //Toast.makeText(getApplicationContext(), fname + mname + lname + gender + address, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -83,6 +106,7 @@ public class RegistrationForm2 extends AppCompatActivity {
         String gender=getIntent().getStringExtra("gender");
         String address=getIntent().getStringExtra("address");
         String user=rbuser.getText().toString();
+
         StringRequest addRequest=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
