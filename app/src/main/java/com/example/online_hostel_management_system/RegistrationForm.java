@@ -27,7 +27,7 @@ public class RegistrationForm extends AppCompatActivity {
     Button btnNext1;
     EditText first_name,middle_name,last_name,address;
     RadioGroup rggender;
-    String URL="http://192.168.56.1/OHMS/UserInsert.php";
+    //String URL="http://192.168.56.1/OHMS/UserInsert.php";
     RadioButton genderrb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +78,11 @@ public class RegistrationForm extends AppCompatActivity {
                 if(adrs.isEmpty())
                 {
                     address.setError("Field can not be empty");
+                }
+
+                if(rggender.getCheckedRadioButtonId()==-1)
+                {
+                    Toast.makeText(getApplicationContext(),"Please select gender",Toast.LENGTH_LONG).show();
                 }
 
                 Intent it=new Intent(RegistrationForm.this,RegistrationForm2.class);
