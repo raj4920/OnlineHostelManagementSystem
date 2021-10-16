@@ -13,7 +13,13 @@
         android:theme="@style/Theme.Online_Hostel_Management_System">
         <activity
             android:name=".RoomAllocationRequest"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".AddRoomTypeFee"
             android:exported="true" />
@@ -53,11 +59,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

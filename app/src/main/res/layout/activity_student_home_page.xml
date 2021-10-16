@@ -30,9 +30,9 @@
         android:background="@drawable/btn_bg"
         android:text="Room Allocation Request"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv1"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv1"
         app:layout_constraintTop_toBottomOf="@+id/tv1"
         app:layout_constraintVertical_bias="0.033" />
 
@@ -43,9 +43,9 @@
         android:background="@drawable/btn_bg"
         android:text="View Room Allocation Request Status"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnrar"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btnrar"
         app:layout_constraintTop_toBottomOf="@+id/btnrar"
         app:layout_constraintVertical_bias="0.032" />
 
@@ -56,9 +56,9 @@
         android:background="@drawable/btn_bg"
         android:text="Pay Hostel Fee"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnvrars"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btnvrars"
         app:layout_constraintTop_toBottomOf="@+id/btnvrars"
         app:layout_constraintVertical_bias="0.031" />
 
@@ -69,9 +69,9 @@
         android:background="@drawable/btn_bg"
         android:text="Place Complaint"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnphf"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btnphf"
         app:layout_constraintTop_toBottomOf="@+id/btnphf"
         app:layout_constraintVertical_bias="0.033" />
 
@@ -83,11 +83,11 @@
         android:background="@drawable/btn_bg"
         android:text="View Food Court Menu"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnpc"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btnpc"
         app:layout_constraintTop_toBottomOf="@+id/btnpc"
-        app:layout_constraintVertical_bias="0.068" />
+        app:layout_constraintVertical_bias="0.036" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
