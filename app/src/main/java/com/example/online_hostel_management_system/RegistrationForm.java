@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -60,12 +61,22 @@ public class RegistrationForm extends AppCompatActivity {
                 String adrs=address.getText().toString();
                 String gender=genderrb.getText().toString();
 
-                if(fname.isEmpty())
+                if(fname.isEmpty() && mname.isEmpty() && lname.isEmpty() && adrs.isEmpty())
                 {
                     first_name.setError("Field can not be empty");
                 }
+                else
+                {
+                    Intent it=new Intent(RegistrationForm.this,RegistrationForm2.class);
+                    it.putExtra("firstname",fname);
+                    it.putExtra("middlename",mname);
+                    it.putExtra("lastname",lname);
+                    it.putExtra("gender",gender);
+                    it.putExtra("address",adrs);
+                    startActivity(it);
+                }
 
-                if(mname.isEmpty())
+                /*if(mname.isEmpty())
                 {
                     middle_name.setError("Field can not be empty");
                 }
@@ -83,15 +94,9 @@ public class RegistrationForm extends AppCompatActivity {
                 if(rggender.getCheckedRadioButtonId()==-1)
                 {
                     Toast.makeText(getApplicationContext(),"Please select gender",Toast.LENGTH_LONG).show();
-                }
+                }*/
 
-                Intent it=new Intent(RegistrationForm.this,RegistrationForm2.class);
-                it.putExtra("firstname",fname);
-                it.putExtra("middlename",mname);
-                it.putExtra("lastname",lname);
-                it.putExtra("gender",gender);
-                it.putExtra("address",adrs);
-                startActivity(it);
+
                 //addData();
                 //Toast.makeText(getApplicationContext(),"",Toast.LENGTH_LONG).show();
             }
