@@ -24,13 +24,16 @@ import java.util.Map;
 
 public class RegistrationForm2 extends AppCompatActivity {
 
-    EditText aadhar_no,contact_no,email_id,password;
+    EditText aadhar_no, contact_no, email_id, password;
     RadioGroup rguser;
     RadioButton rbuser;
     Button btnNext2;
     RadioButton rbrole;
+    RadioButton Student;
+    RadioButton Staff;
 
-    String URL="http://192.168.56.1/OHMS/UserInsert.php";
+    String URL = "http://192.168.56.1/OHMS/UserInsert.php";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,63 +42,119 @@ public class RegistrationForm2 extends AppCompatActivity {
         eventHandler();
     }
 
-    private void controlIns()
-    {
-        btnNext2=findViewById(R.id.btnnext2);
-        aadhar_no=findViewById(R.id.aadharNo);
-        contact_no=findViewById(R.id.contactNo);
-        email_id=findViewById(R.id.emailId);
-        password=findViewById(R.id.password);
-        rguser=findViewById(R.id.user);
+    private void controlIns() {
+        btnNext2 = findViewById(R.id.btnnext2);
+        aadhar_no = findViewById(R.id.aadharNo);
+        contact_no = findViewById(R.id.contactNo);
+        email_id = findViewById(R.id.emailId);
+        password = findViewById(R.id.password);
+        rguser = findViewById(R.id.user);
+        Student=findViewById(R.id.student);
+        Staff=findViewById(R.id.staff);
     }
 
-    private void eventHandler()
-    {
+    private void eventHandler() {
         btnNext2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int userId=rguser.getCheckedRadioButtonId();
-                rbuser=(RadioButton)findViewById(userId);
-                rbrole=(RadioButton)findViewById(userId);
-                String userRole=rbrole.getText().toString();
+                int userId = rguser.getCheckedRadioButtonId();
+                rbuser = (RadioButton) findViewById(userId);
+
+                String aadharNo = aadhar_no.getText().toString();
+                String contactNo = contact_no.getText().toString();
+                String emailId = email_id.getText().toString();
+                String pwd = password.getText().toString();
+
+                boolean check=validation(aadharNo,contactNo,emailId,pwd);
+
+                if(check==true)
+                {
+                    if (rbuser.getText().toString().equals("Student")) {
+                        addData();
+                        Intent it1 = new Intent(RegistrationForm2.this, StudentDetails.class);
+                        startActivity(it1);
+                    } else if (rbuser.getText().toString().equals("Staff")) {
+                        addData();
+                        Intent it2 = new Intent(RegistrationForm2.this, MainActivity.class);
+                        startActivity(it2);
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Enter all information",Toast.LENGTH_LONG).show();
+                }
 
 
-                String aadharNo=aadhar_no.getText().toString();
-                String contactNo=contact_no.getText().toString();
-                String emailId=email_id.getText().toString();
-                String pwd=password.getText().toString();
-
-                if(aadharNo.isEmpty())
-                {
-                    aadhar_no.setError("Field can not be empty");
-                }
-                else if(aadharNo.length()>12 && aadharNo.length()<12)
-                {
-                    aadhar_no.setError("Invalid aadgar card no");
-                }
-
-                if(contactNo.isEmpty())
-                {
-                    contact_no.setError("Field can not be empty");
-                }
-                else if(contactNo.length()>10 && contactNo.length()<10)
-                {
-                    contact_no.setError("Invalid contact no");
-                }
-
-                if(userRole.equals("Student"))
-                {
-                    Intent it1=new Intent(RegistrationForm2.this,StudentDetails.class);
-                    startActivity(it1);
-                }
-                else if(userRole.equals("Staff"))
-                {
-                    Intent it2=new Intent(RegistrationForm2.this,MainActivity.class);
-                    startActivity(it2);
-                }
-                addData();
+                //addData();
             }
         });
+    }
+
+    private boolean validation(String aadharNo, String contactNo, String emailId, String pwd)
+    {
+        if(aadharNo.length()==0)
+        {
+            aadhar_no.requestFocus();
+            aadhar_no.setError("Field cannot be empty");
+            return false;
+        }
+        else if(aadharNo.length()<12)
+        {
+            aadhar_no.requestFocus();
+            aadhar_no.setError("Enter valid aadhar card number");
+            return false;
+        }
+        else if(contactNo.length()==0)
+        {
+            contact_no.requestFocus();
+            contact_no.setError("Field cannot be empty");
+            return false;
+        }
+        else if(contactNo.length()<10)
+        {
+            contact_no.requestFocus();
+            contact_no.setError("Enter valid contact no");
+            return false;
+        }
+        else if(emailId.length()==0)
+        {
+            email_id.requestFocus();
+            email_id.setError("Field cannot be empty");
+            return false;
+        }
+        else if(!emailId.matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"))
+        {
+            email_id.requestFocus();
+            email_id.setError("Enter valid email id");
+            return false;
+        }
+        else if(pwd.length()==0)
+        {
+            password.requestFocus();
+            password.setError("Field cannot be empty");
+            return false;
+        }
+        else if(!pwd.matches("[a-zA-Z0-9]+"))
+        {
+            password.requestFocus();
+            password.setError("password should be combination of small character, capital character and number");
+            return false;
+        }
+        else if(pwd.length()<8)
+        {
+            password.requestFocus();
+            password.setError("Minimum 8 character required");
+            return false;
+        }
+        else if(!Student.isChecked() && !Staff.isChecked())
+        {
+            Toast.makeText(getApplicationContext(),"Please select user type",Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 
     private void addData()

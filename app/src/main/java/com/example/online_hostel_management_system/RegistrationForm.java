@@ -30,6 +30,8 @@ public class RegistrationForm extends AppCompatActivity {
     RadioGroup rggender;
     //String URL="http://192.168.56.1/OHMS/UserInsert.php";
     RadioButton genderrb;
+    RadioButton Male;
+    RadioButton Female;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +48,8 @@ public class RegistrationForm extends AppCompatActivity {
         last_name=findViewById(R.id.lastName);
         rggender=findViewById(R.id.gender);
         address=findViewById(R.id.address);
+        Male=findViewById(R.id.male);
+        Female=findViewById(R.id.female);
     }
 
     private void eventHandler()
@@ -59,40 +63,82 @@ public class RegistrationForm extends AppCompatActivity {
                 String mname=middle_name.getText().toString();
                 String lname=last_name.getText().toString();
                 String adrs=address.getText().toString();
-                String gender=genderrb.getText().toString();
 
+                //Toast.makeText(getApplicationContext(), genderrb.getText().toString(), Toast.LENGTH_SHORT).show();
 
-                if(fname.isEmpty())
-                {
-                    first_name.setError("Field is required");
-                }
-                else if(mname.isEmpty())
-                {
-                    middle_name.setError("Field is required");
-                }
-                else if(lname.isEmpty())
-                {
-                    last_name.setError("Field is required");
-                }
-                else if (adrs.isEmpty())
-                {
-                    address.setError("Field is required");
-                }
-                else
+                boolean check=validation(fname,mname,lname,adrs);
+                if(check==true)
                 {
                     Intent it=new Intent(RegistrationForm.this,RegistrationForm2.class);
                     it.putExtra("firstname",fname);
                     it.putExtra("middlename",mname);
                     it.putExtra("lastname",lname);
-                    it.putExtra("gender",gender);
+                    it.putExtra("gender",genderrb.getText().toString());
                     it.putExtra("address",adrs);
                     startActivity(it);
                 }
-
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Enter all information",Toast.LENGTH_LONG).show();
+                }
                 //addData();
                 //Toast.makeText(getApplicationContext(),"",Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    private boolean validation(String fname, String mname, String lname, String adrs)
+    {
+        if(fname.length()==0)
+        {
+            first_name.requestFocus();
+            first_name.setError("Field cannot be empty");
+            return false;
+        }
+        else if (!fname.matches("[a-zA-Z]+"))
+        {
+            first_name.requestFocus();
+            first_name.setError("Enter only character");
+            return false;
+        }
+        else if(mname.length()==0)
+        {
+            middle_name.requestFocus();
+            middle_name.setError("Field cannot be empty");
+            return false;
+        }
+        else if(!mname.matches("[a-zA-Z]+"))
+        {
+            middle_name.requestFocus();
+            middle_name.setError("Enter only character");
+            return false;
+        }
+        else if(lname.length()==0)
+        {
+            last_name.requestFocus();
+            last_name.setError("Field cannot be empty");
+            return false;
+        }
+        else if(!lname.matches("[a-zA-Z]+"))
+        {
+            last_name.requestFocus();
+            last_name.setError("Enter only character");
+            return false;
+        }
+        else if(adrs.length()==0)
+        {
+            address.requestFocus();
+            address.setError("Field cannot be empty");
+            return false;
+        }
+        else if(!Female.isChecked() && !Male.isChecked())
+        {
+            Toast.makeText(getApplicationContext(),"Please select gender",Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 
     /*private void addData()
