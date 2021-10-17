@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 
-public class FoodCourtMenu extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class FoodCourtMenu extends AppCompatActivity {
 
     Spinner Day;
     Spinner Time;
@@ -55,41 +55,49 @@ public class FoodCourtMenu extends AppCompatActivity implements AdapterView.OnIt
         ArrayAdapter aa1=new ArrayAdapter(this, R.layout.days_layout,days);
         aa1.setDropDownViewResource(R.layout.days_layout);
         Day.setAdapter(aa1);
-        Day.setOnItemSelectedListener(this);
-
 
         ArrayAdapter aa2=new ArrayAdapter(this,R.layout.days_layout,time);
         aa2.setDropDownViewResource(R.layout.days_layout);
         Time.setAdapter(aa2);
-        Time.setOnItemSelectedListener(this);
-
-
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        day=adapterView.getItemAtPosition(i).toString();
-        ftime=adapterView.getItemAtPosition(i).toString();
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
     }
 
     private void eventHandler()
     {
+        Day.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                day= (String) adapterView.getItemAtPosition(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        Time.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                ftime= (String) adapterView.getItemAtPosition(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String DishName=dishName.getText().toString();
-
+                String DAY=day;
+                String TIME=ftime;
                 boolean check=validation(DishName);
 
                 if(check==true)
                 {
                     addFoodMenu();
-                    Toast.makeText(getApplicationContext(),"Done",Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(),"Done",Toast.LENGTH_LONG).show();
                 }
                 else
                 {
