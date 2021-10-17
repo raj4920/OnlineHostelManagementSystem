@@ -36,13 +36,13 @@
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/sfm"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/sfm"
         app:layout_constraintTop_toBottomOf="@+id/sfm"
         app:layout_constraintVertical_bias="0.077" />
 
-    <EditText
+    <!--<EditText
         android:id="@+id/day"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -82,7 +82,18 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/day"
-        app:layout_constraintVertical_bias="0.069" />
+        app:layout_constraintVertical_bias="0.069" />-->
+
+    <Spinner
+        android:id="@+id/day"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/dn"
+        app:layout_constraintTop_toBottomOf="@+id/dn"
+        app:layout_constraintVertical_bias="0.064" />
 
     <Button
         android:id="@+id/btnsm"
@@ -94,7 +105,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/time"
+        app:layout_constraintTop_toBottomOf="@+id/day"
         app:layout_constraintVertical_bias="0.084" />
 
 
