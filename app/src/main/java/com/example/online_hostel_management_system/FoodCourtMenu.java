@@ -9,11 +9,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-public class FoodCourtMenu extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class FoodCourtMenu extends AppCompatActivity{
 
     Spinner Day;
+    Spinner Time;
 
     String[] days={"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
+    String[] time={"Breakfast","Lunch","Dinner"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,25 +26,18 @@ public class FoodCourtMenu extends AppCompatActivity implements AdapterView.OnIt
     private void controlIns()
     {
         Day=findViewById(R.id.day);
+        Time=findViewById(R.id.time);
     }
 
     private void eventHandler()
     {
-        Day.setOnItemSelectedListener(this);
+        ArrayAdapter aa1=new ArrayAdapter(this, R.layout.days_layout,days);
+        aa1.setDropDownViewResource(R.layout.days_layout);
+        Day.setAdapter(aa1);
 
-        ArrayAdapter aa=new ArrayAdapter(this, R.layout.days_layout,days);
-        aa.setDropDownViewResource(R.layout.days_layout);
-        Day.setAdapter(aa);
-
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
+        ArrayAdapter aa2=new ArrayAdapter(this,R.layout.days_layout,time);
+        aa2.setDropDownViewResource(R.layout.days_layout);
+        Time.setAdapter(aa2);
 
     }
 }
