@@ -11,7 +11,7 @@
         android:id="@+id/mhe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hostel Expance"
+        android:text="Hostel Expanse"
         android:textColor="@color/white"
         android:textSize="36sp"
         android:textStyle="bold"
@@ -25,11 +25,10 @@
         android:id="@+id/ehe"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="544dp"
         android:background="@drawable/input_bg"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Expence Description"
+        android:hint="Expense Description"
         android:lines="3"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
@@ -42,29 +41,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mhe"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <EditText
-        android:id="@+id/ed"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/input_bg"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Expence Date"
-        android:inputType="date"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ehe"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.116" />
 
     <EditText
         android:id="@+id/ec"
@@ -73,7 +50,7 @@
         android:background="@drawable/input_bg"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Expence Cost"
+        android:hint="Expense Cost"
         android:inputType="number"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
@@ -85,7 +62,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed"
+        app:layout_constraintTop_toBottomOf="@+id/ehe"
         app:layout_constraintVertical_bias="0.065" />
 
     <Button
