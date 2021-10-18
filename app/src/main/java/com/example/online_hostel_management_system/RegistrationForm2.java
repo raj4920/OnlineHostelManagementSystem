@@ -71,7 +71,7 @@ public class RegistrationForm2 extends AppCompatActivity {
                 {
                     if (rbuser.getText().toString().equals("Student")) {
                         addData();
-                        Intent it1 = new Intent(RegistrationForm2.this, StudentDetails.class);
+                        Intent it1 = new Intent(RegistrationForm2.this, MainActivity.class);
                         startActivity(it1);
                     } else if (rbuser.getText().toString().equals("Staff")) {
                         addData();

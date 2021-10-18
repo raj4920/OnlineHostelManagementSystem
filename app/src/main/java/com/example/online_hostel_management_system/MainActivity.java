@@ -39,29 +39,32 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String email=edtEmail.getText().toString();
                 String password=edtPassword.getText().toString();
-                String checkEmail="[a-zA-Z0-9._-]+@[a-z]+.+[a-z]+";
 
-                if(email.isEmpty())
+                 if(email.length()==0)
                 {
-                    edtEmail.setError("Field can not be empty");
+                    edtEmail.requestFocus();
+                    edtEmail.setError("Field cannot be empty");
                 }
-                else if (!email.matches(checkEmail))
+                else if(!email.matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"))
                 {
-                    edtEmail.setError("Invalid email id");
+                    edtEmail.requestFocus();
+                    edtEmail.setError("Enter valid email id");
                 }
-                else
-                {
-                    edtEmail.setError(null);
-                }
-
-                if(password.isEmpty())
-                {
-                    edtPassword.setError("Field can not be empty");
-                }
-                else if(password.length()<8)
-                {
-                    edtPassword.setError("Minimum 8 characters required");
-                }
+                 else if(password.length()==0)
+                 {
+                     edtPassword.requestFocus();
+                     edtPassword.setError("Field cannot be empty");
+                 }
+                 else if(password.length()<8)
+                 {
+                     edtPassword.requestFocus();
+                     edtPassword.setError("Password must be minimum 8 characters");
+                 }
+                 else if(!password.matches("[a-zA-Z0-9]+"))
+                 {
+                     edtPassword.requestFocus();
+                     edtPassword.setError("password should be combination of small character, capital character and number");
+                 }
             }
         });
 
