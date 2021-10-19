@@ -54,15 +54,6 @@ public class StaffHomePage extends AppCompatActivity implements LocationListener
         txtLocation=findViewById(R.id.tvd);
     }
 
-    private void eventHandler() {
-        btnEntryAttendance.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getLocation();
-            }
-        });
-    }
-
     private void getLocation() {
         try {
             locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -77,8 +68,17 @@ public class StaffHomePage extends AppCompatActivity implements LocationListener
     public void onLocationChanged(Location location) {
         latitude=location.getLatitude();
         longitude=location.getLongitude();
-
-        txtLocation.setText("Current Location = " + location.getLatitude() + "," + location.getLongitude());
+        double originalLat=37.421998333333335;
+        double originalLon=-122.08400000000002;
+        if(originalLat==latitude && originalLon==longitude)
+        {
+            Toast.makeText(getApplicationContext(),"Correct Location",Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"Wrong Location",Toast.LENGTH_LONG).show();
+        }
+        //txtLocation.setText("Current Location = " + location.getLatitude() + "," + location.getLongitude());
     }
 
     @Override
@@ -94,5 +94,21 @@ public class StaffHomePage extends AppCompatActivity implements LocationListener
     @Override
     public void onProviderEnabled(String provider) {
 
+    }
+
+    private void eventHandler() {
+        btnEntryAttendance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getLocation();
+            }
+        });
+
+        btnExitAttendance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getLocation();
+            }
+        });
     }
 }
