@@ -51,7 +51,7 @@ public class StaffHomePage extends AppCompatActivity implements LocationListener
     private void controlIns() {
         btnEntryAttendance = findViewById(R.id.btnena);
         btnExitAttendance = findViewById(R.id.btnexa);
-        txtLocation=findViewById(R.id.tvd);
+        //txtLocation=findViewById(R.id.tvd);
     }
 
     private void getLocation() {
