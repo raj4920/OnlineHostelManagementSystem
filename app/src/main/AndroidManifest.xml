@@ -4,7 +4,6 @@
     package="com.example.online_hostel_management_system">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
@@ -16,10 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Online_Hostel_Management_System">
-
         <activity
-            android:name=".ViewFoodCourtMenu"
-            android:exported="true">
+            android:name=".ViewComplaints"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,8 +25,13 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".ViewFoodCourtMenu"
+            android:exported="true"></activity>
+        <activity
             android:name=".PlaceComplaint"
-            android:exported="true" />
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".RoomAllocationRequest"
             android:exported="true" />
@@ -37,10 +40,10 @@
             android:exported="true" />
         <activity
             android:name=".FoodCourtMenu"
-            android:exported="true"/>
+            android:exported="true"></activity>
         <activity
             android:name=".MaintainHostelExpense"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".MaintainRoomDetails"
             android:exported="true" />
@@ -49,7 +52,13 @@
             android:exported="true" />
         <activity
             android:name=".StaffHomePage"
-            android:exported="true"/>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".AdminHomePage"
             android:exported="true" />
@@ -70,13 +79,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

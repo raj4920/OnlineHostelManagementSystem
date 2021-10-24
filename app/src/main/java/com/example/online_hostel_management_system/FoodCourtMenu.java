@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -21,6 +22,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
@@ -31,18 +37,24 @@ public class FoodCourtMenu extends AppCompatActivity {
     Spinner Time;
     EditText dishName;
     Button btnSubmit;
+    ListView vfcm;
+    int foodId;
     String[] days={"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
     String[] time={"Breakfast","Lunch","Dinner"};
 
     String day="";
     String ftime="";
 
+    ArrayAdapter<String> adapter;
+
     String URL="http://192.168.56.1/OHMS/AddFoodCourtMenu.php";
+    String URL2="http://192.168.56.1/OHMS/ViewFoodCourtMenu.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_court_menu);
         controlIns();
+        viewFoodMenu();
         eventHandler();
     }
     private void controlIns()
@@ -51,6 +63,7 @@ public class FoodCourtMenu extends AppCompatActivity {
         Time=findViewById(R.id.time);
         dishName=findViewById(R.id.dn);
         btnSubmit=findViewById(R.id.btnsm);
+        vfcm=findViewById(R.id.vfcm);
 
         ArrayAdapter aa1=new ArrayAdapter(this, R.layout.days_layout,days);
         aa1.setDropDownViewResource(R.layout.days_layout);
@@ -59,6 +72,16 @@ public class FoodCourtMenu extends AppCompatActivity {
         ArrayAdapter aa2=new ArrayAdapter(this,R.layout.days_layout,time);
         aa2.setDropDownViewResource(R.layout.days_layout);
         Time.setAdapter(aa2);
+
+        vfcm.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String selectedItem = adapter.getItem(i);
+                String[] SelectedColumn = selectedItem.split(",");
+                foodId = Integer.parseInt(SelectedColumn[0]);
+                dishName.setText(SelectedColumn[1]);
+            }
+        });
     }
 
     private void eventHandler()
@@ -146,5 +169,48 @@ public class FoodCourtMenu extends AppCompatActivity {
         };
         RequestQueue queue= Volley.newRequestQueue(this);
         queue.add(addRequest);
+    }
+
+    private void viewFoodMenu()
+    {
+        StringRequest request=new StringRequest(Request.Method.GET, URL2, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    //Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+                    JSONObject object=new JSONObject(response);
+                    ArrayList<String> foodList=new ArrayList<String>();
+                    foodList.add("Menu      Day     Time");
+
+                    if(object.optBoolean("foodmenu"))
+                    {
+                        JSONArray dataarray=object.getJSONArray("data");
+                        for(int i=0;i<dataarray.length();i++)
+                        {
+                            JSONObject dataobject=dataarray.getJSONObject(i);
+                            foodList.add(dataobject.getString("Dish_Name") + "," +
+                                    dataobject.getString("Day") + "," +
+                                    dataobject.getString("Time"));
+                        }
+                        ArrayAdapter<String> adapter=new ArrayAdapter<String>(getApplicationContext(),
+                                android.R.layout.simple_list_item_1,foodList);
+                        vfcm.setAdapter(adapter);
+                    }
+                    else
+                    {
+                        Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+        RequestQueue queue= Volley.newRequestQueue(this);
+        queue.add(request);
     }
 }

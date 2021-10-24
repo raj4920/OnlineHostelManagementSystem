@@ -31,17 +31,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-public class StaffHomePage extends AppCompatActivity implements LocationListener{
+public class StaffHomePage extends AppCompatActivity implements LocationListener {
 
     Button btnEntryAttendance;
     Button btnExitAttendance;
-
-    double latitude;
-    double longitude;
-
     TextView txtLocation;
-
+    String latitude, longitude;
     LocationManager locationManager;
+    LocationListener locationListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,64 +51,85 @@ public class StaffHomePage extends AppCompatActivity implements LocationListener
     private void controlIns() {
         btnEntryAttendance = findViewById(R.id.btnena);
         btnExitAttendance = findViewById(R.id.btnexa);
-        //txtLocation=findViewById(R.id.tvd);
+        txtLocation = findViewById(R.id.tvd);
+
+
     }
 
-    private void getLocation() {
-        try {
-            locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, (LocationListener) this);
-        }catch (SecurityException e)
-        {
-            e.printStackTrace();
+    private void getLocation()
+    {
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) !=
+                        PackageManager.PERMISSION_GRANTED) {
+            return;
         }
-    }
-
-    @Override
-    public void onLocationChanged(Location location) {
-        latitude=location.getLatitude();
-        longitude=location.getLongitude();
-        double originalLat=37.421998333333335;
-        double originalLon=-122.08400000000002;
-        if(originalLat==latitude && originalLon==longitude)
-        {
-            Toast.makeText(getApplicationContext(),"Correct Location",Toast.LENGTH_LONG).show();
-        }
-        else
-        {
-            Toast.makeText(getApplicationContext(),"Wrong Location",Toast.LENGTH_LONG).show();
-        }
-        //txtLocation.setText("Current Location = " + location.getLatitude() + "," + location.getLongitude());
-    }
-
-    @Override
-    public void onProviderDisabled(String provider) {
-        Toast.makeText(StaffHomePage.this, "Please Enable GPS and Internet", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-
-    }
-
-    @Override
-    public void onProviderEnabled(String provider) {
-
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, StaffHomePage.this);
     }
 
     private void eventHandler() {
+        getLocation();
+        String lat="37.421998333333335";
+        String lon="-122.08400000000002";
+
+        String entryTime="08:30:00";
+        String exitTime="17:00:00";
+
+        SimpleDateFormat sdf=new SimpleDateFormat("HH:mm:ss");
+        String currentTime=sdf.format(new Date());
         btnEntryAttendance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getLocation();
+
+                if(latitude.equals(lat) && longitude.equals(lon) && entryTime.equals(currentTime))
+                {
+                    Toast.makeText(getApplicationContext(),"Done...",Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(), currentTime, Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Error...",Toast.LENGTH_LONG).show();
+                }
             }
         });
 
         btnExitAttendance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getLocation();
+                if(latitude.equals(lat) && longitude.equals(lon) && currentTime.equals(entryTime))
+                {
+                    Toast.makeText(getApplicationContext(),"Done...",Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Error...",Toast.LENGTH_LONG).show();
+                }
             }
         });
+    }
+
+    @Override
+    public void onLocationChanged(@NonNull Location location) {
+        //txtLocation.setText(location.getLatitude() + "-" + location.getLongitude());
+        latitude=String.valueOf(location.getLatitude());
+        longitude=String.valueOf(location.getLongitude());
+
+    }
+
+    @Override
+    public void onProviderEnabled(@NonNull String provider) {
+        Toast.makeText(getApplicationContext(),"ON",Toast.LENGTH_LONG).show();
+
+    }
+
+    @Override
+    public void onProviderDisabled(@NonNull String provider) {
+        Toast.makeText(getApplicationContext(),"OFF",Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+        Log.d("Latitude","status");
     }
 }
