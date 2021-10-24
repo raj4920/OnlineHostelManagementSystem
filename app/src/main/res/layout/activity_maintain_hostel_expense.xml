@@ -65,6 +65,52 @@
         app:layout_constraintTop_toBottomOf="@+id/ehe"
         app:layout_constraintVertical_bias="0.065" />
 
+    <!--<TextView
+        android:id="@+id/tvdate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_bg"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Select Date"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnsubmithe"
+        app:layout_constraintEnd_toEndOf="@+id/ec"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/ec"
+        app:layout_constraintTop_toBottomOf="@+id/ec"
+        app:layout_constraintVertical_bias="0.367" />-->
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_bg"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Select Date"
+        android:inputType="none"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ec"
+        app:layout_constraintVertical_bias="0.064"
+        android:clickable="true"
+        android:focusable="false" />
+
     <Button
         android:id="@+id/btnsubmithe"
         android:layout_width="0dp"
@@ -73,9 +119,9 @@
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ec"
-        app:layout_constraintVertical_bias="0.101" />
+        app:layout_constraintVertical_bias="0.233" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

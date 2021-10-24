@@ -46,6 +46,7 @@ public class ViewFoodCourtMenu extends AppCompatActivity {
                     //Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
                     JSONObject object=new JSONObject(response);
                     ArrayList<String> foodList=new ArrayList<String>();
+                    foodList.add("Menu      Day     Time");
 
                     if(object.optBoolean("foodmenu"))
                     {
@@ -53,8 +54,8 @@ public class ViewFoodCourtMenu extends AppCompatActivity {
                         for(int i=0;i<dataarray.length();i++)
                         {
                             JSONObject dataobject=dataarray.getJSONObject(i);
-                            foodList.add(dataobject.getString("Dish_Name") + "," +
-                                    dataobject.getString("Day") + "," +
+                                foodList.add(dataobject.getString("Dish_Name") + "      " +
+                                        dataobject.getString("Day") + "     " +
                                     dataobject.getString("Time"));
                         }
                         ArrayAdapter<String> adapter=new ArrayAdapter<String>(getApplicationContext(),
