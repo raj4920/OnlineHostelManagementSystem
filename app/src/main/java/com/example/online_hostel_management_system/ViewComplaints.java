@@ -48,9 +48,8 @@ public class ViewComplaints extends AppCompatActivity {
                     JSONObject object=new JSONObject(response);
                     ArrayList<String> foodList=new ArrayList<String>();
 
-                    if(object.optBoolean("vc"))
-                    {
-                        JSONArray dataarray=object.getJSONArray("data");
+
+                        JSONArray dataarray=object.getJSONArray("complaint");
                         for(int i=0;i<dataarray.length();i++)
                         {
                             JSONObject dataobject=dataarray.getJSONObject(i);
@@ -61,11 +60,7 @@ public class ViewComplaints extends AppCompatActivity {
                         ArrayAdapter<String> adapter=new ArrayAdapter<String>(getApplicationContext(),
                                 android.R.layout.simple_list_item_1,foodList);
                         lstComplaint.setAdapter(adapter);
-                    }
-                    else
-                    {
-                        Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
-                    }
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
